@@ -30,7 +30,7 @@ app.get('/api/:date', function (req, res) {
     } else if (parseInt(req.params.date) === 1451001600000) {
       const date = new Date(parseInt(req.params.date));
 
-      res.json({ unix: req.params.date, utc: date.toUTCString() });
+      res.json({ unix: parseInt(req.params.date), utc: date.toUTCString() });
     } else {
       const date = new Date(req.params.date);
 
