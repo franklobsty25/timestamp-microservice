@@ -23,11 +23,12 @@ app.get('/api/hello', function (req, res) {
   res.json({ greeting: 'Timestamp Microservice API' });
 });
 
+app.get('/api', function (req, res) {
+  res.json({ unix: new Date().getTime(), utc: new Date().toUTCString() });
+});
+
 
 app.get('/api/:date', function (req, res) {
-  if (req.params.date) {
-    res.json({ unix: new Date().getTime(), utc: new Date().toUTCString() });
-  }
 
   if (parseInt(req.params.date) === 1451001600000) {
     const date = new Date(parseInt(req.params.date));
