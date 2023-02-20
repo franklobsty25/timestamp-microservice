@@ -24,11 +24,15 @@ app.get('/api/hello', function (req, res) {
 });
 
 app.get('/api', function (req, res) {
-  res.json({ unix: new Date().getTime(), utc: new Date().toUTCString() });
+  let date = new Date();
+  let UTC = date.getTime();
+  UTC = new Date(UTC);
+  UTS = UTC.toUTCString();
+  let UNIX = date.getTime();
+  res.json({ unix: UNIX, utc: UTS });
 });
 
 app.get('/api/:date', function (req, res) {
-
   if (parseInt(req.params.date) === 1451001600000) {
     const date = new Date(parseInt(req.params.date));
 
@@ -43,7 +47,6 @@ app.get('/api/:date', function (req, res) {
   } else {
     res.json({ error: 'Invalid Date' });
   }
-
 });
 
 // listen for requests :)
