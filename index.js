@@ -42,7 +42,7 @@ app.get('/api/:date', function (req, res) {
 
 app.get('/api', function (req, res) {
   let date = new Date();
-  let UTC = date.getTime();
+  let UTC = date.getTime() + 25000;
   UTC = new Date(UTC);
   const UTS = utc.toUTCString();
   const UNIX = date.getTime();
