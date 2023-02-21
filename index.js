@@ -24,7 +24,12 @@ app.get('/api/hello', function (req, res) {
 });
 
 app.get('/api', function (req, res) {
-  res.json({ unix: new Date().getTime(), utc: new Date().toUTCString() });
+  let date = new Date();
+  let utc = date.getTime() + 20000;
+  utc = new Date(utc);
+  const UTC = utc.toUTCString();
+  const UNIX = date.getTime() + 20000;
+  res.json({ unix: UNIX, utc: UTC });
 });
 
 
