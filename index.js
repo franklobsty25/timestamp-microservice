@@ -44,7 +44,7 @@ app.get('/api', function (req, res) {
   let date = new Date();
   let UTC = date.getTime();
   UTC = new Date(UTC);
-  const UTS = utc.toUTCString();
+  const UTS = UTC.toUTCString();
   const UNIX = date.getTime();
   res.json({ unix: UNIX, utc: UTS });
 });
